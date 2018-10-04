@@ -37,11 +37,11 @@
 
 ​									GPIO与控制寄存器的关系：
 
-![1538382038005](C:\Users\yiyue\AppData\Roaming\Typora\typora-user-images\1538382038005.png)
+![1538382038005.png](https://i.loli.net/2018/10/04/5bb5f95a2d23b.png)
 
-​										
 
-将第 i 位置1：`|=(1<<i);`
+
+将第 i 位置1：|=(1<<i);
 
 将第 i 位置0：`&=~(1<<i);`
 
@@ -75,7 +75,9 @@
 
 ##### GPIO寄存器配置：p0.0输出高电平
 
-![1538382905180](C:\Users\yiyue\AppData\Roaming\Typora\typora-user-images\1538382905180.png)
+
+
+![1538382905180.png](https://i.loli.net/2018/10/04/5bb5f95a2fa47.png)
 
 ```c
 PINSEL0 = 0x00;//配置为GPIO口
@@ -85,7 +87,11 @@ IO0DIR |= 0x01；//配置为输出
 IO0SET=0X01;//p0.0输出高电平	
 ```
 
-##### 蜂鸣器控制电路：让蜂鸣器时响时不响：![1538386683061](C:\Users\yiyue\AppData\Roaming\Typora\typora-user-images\1538386683061.png)
+##### 蜂鸣器控制电路：让蜂鸣器时响时不响：
+
+
+![1538386683061.png](https://i.loli.net/2018/10/04/5bb5f95a4b5f2.png)
+
 
 ```c
 //延时函数
@@ -110,7 +116,11 @@ int main(){
 
 ##### 键控开关-蜂鸣器开关电路(用查询的办法,中断办法看4.9的总结例题)
 
-![1538408154150](C:\Users\yiyue\AppData\Roaming\Typora\typora-user-images\1538408154150.png)
+
+
+![1538408154150.png](https://i.loli.net/2018/10/04/5bb5f95a4fb11.png)
+
+
 
 功能描述：按键控制蜂鸣器，奇数次响，偶数次不响。
 
@@ -156,7 +166,7 @@ void main(void){
 
 ### 4.9 向量中断控制器
 
-![1538559072151](C:\Users\yiyue\AppData\Roaming\Typora\typora-user-images\1538559072151.png)
+![1538559072151.png](https://i.loli.net/2018/10/04/5bb5fa0013340.png)
 
 |        中断类型         | 优先级         |
 | :---------------------: | -------------- |
@@ -432,9 +442,7 @@ VICVectCntl0 = (1<<5)|17;		//EINT3分配为通道0
 VICVectAddr0 = (int)IRQ_Eint3;	//中断服务程序地址
 ```
 
-这两句换成
-
-`VICDefVectAddr = (int)IRQ_Eint3; //中断服务程序地址`
+这两句换成`VICDefVectAddr = (int)IRQ_Eint3; //中断服务程序地址`
 
 完整版：
 
